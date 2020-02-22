@@ -30,7 +30,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
 gem 'rubocop', require: false
 gem 'cancan'
-
+gem 'jwt'
+gem 'simple_command'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,26 +1,10 @@
 class Transaction < ApplicationRecord
-	belongs_to :merchant
-	acts_as_list scope: :merchant
-	scope transactions_by ->(type) do
-		where(status_type: type)
-	end
-end
+	scope :refund, -> { where(status_type: 'Refund') }
+  	scope :cancel, -> { where(status_type: 'Cancel') }
+  	scope :charge, -> { where(status_type: 'Charge') }
 
-class Refund < Transaction
-	validates :parent_id, presence: true
-	scope transactions -> do
-		transactions_by('Refund')
-	end
-end
-
-class Cancel < Transaction
-	scope transactions -> do
-		transactions_by('Cancel')
-	end
-end
-
-class Success < Transaction
-	scope transactions -> do
-		transactions_by('Success')
-	end
+	# belongs_to :merchant
+	# scope :transactions_by, ->(type) do
+	# 	where(status_type: type)
+	# end
 end

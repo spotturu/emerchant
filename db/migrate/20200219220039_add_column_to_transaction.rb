@@ -1,5 +1,5 @@
 class AddColumnToTransaction < ActiveRecord::Migration[6.0]
   def change
-  	add_reference :transactions, :merchant, foreign_key: true
+  	add_column :merchants, :uuid, :uuid, default: 'gen_random_uuid()'
   end
 end
