@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
       devise_for :users
-      resources :transactions, only: [:index]
+      resources :transactions, only: [:index, :create]
       match '/authenticate' => 'authentication#authenticate', via: :post
     end
   end
