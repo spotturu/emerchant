@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require 'csv'
 
-namespace :default_merchants do
+namespace :new_merchants do
   desc 'Create default merchants task merchants:finish'
   task create: :environment do
     

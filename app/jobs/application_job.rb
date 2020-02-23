@@ -1,4 +1,5 @@
 class ApplicationJob < ActiveJob::Base
+	self.queue_adapter = :resque
   # Automatically retry jobs that encountered a deadlock
   # retry_on ActiveRecord::Deadlocked
 
