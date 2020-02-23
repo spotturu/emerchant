@@ -14,6 +14,6 @@ namespace :default_merchants do
     data.each do |record|
     	merchant.create(name: record[:name], email: record[:email], status: ACTIVE )
 	end
-    logger.debug 'Task Redmine issues status updation completed'
+    logger.debug 'Task Create default merchants completed'
   end
 end

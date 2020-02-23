@@ -10,37 +10,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_21_221012) do
+ActiveRecord::Schema.define(version: 2020_02_22_231547) do
 
   create_table "merchants", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.string "description"
-    t.string "email"
-    t.integer "status"
-    t.float "total"
+    t.string "email", null: false
+    t.integer "status", null: false
+    t.float "total_transaction_sum", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "transactions", force: :cascade do |t|
-    t.string "uuid"
-    t.float "amount"
-    t.string "status"
+    t.integer "merchant_id", null: false
+    t.string "uuid", null: false
+    t.string "type", null: false
+    t.integer "parent_id", null: false
+    t.decimal "amount", precision: 8, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "merchant_id"
-    t.integer "status_type"
-    t.integer "parent_id"
-    t.index ["merchant_id"], name: "index_transactions_on_merchant_id"
+    t.string "status"
+    t.string "#<ActiveRecord::ConnectionAdapters::SQLite3::TableDefinition:0x0000000008d3ee80>"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.string "password_digest"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "authentication_token", limit: 30
+    t.index ["authentication_token"], name: "index_users_on_authentication_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "transactions", "merchants"
 end
