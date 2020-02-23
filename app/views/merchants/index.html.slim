@@ -6,7 +6,6 @@ table
       th Name
       th Description
       th Email
-      th Status
       th Total
       th
       th
@@ -18,7 +17,6 @@ table
         td = merchant.name
         td = merchant.description
         td = merchant.email
-        td = merchant.status
         td = merchant.total_transaction_sum
         td = link_to 'Show', merchant
         td = link_to 'Edit', edit_merchant_path(merchant)

@@ -17,29 +17,26 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.7'
-# Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 4.0'
-# Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'bootstrap-sass', '3.4.1'
 gem 'slim-rails', '~> 3.1', '>= 3.1.1'
-gem 'rubocop', require: false
+gem 'rubocop', '0.80.0', require: false, group: [:development, :tests]
 gem 'cancan'
-# gem 'devise-jwt'
 gem 'jwt'
 gem 'devise'
 gem 'simple_command'
-# gem 'bcrypt', '~> 3.1.7'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+gem 'rails_best_practices', '1.19.5', require: false, group: [:development, :tests]
+gem 'database_cleaner', '1.8.3', group: :test
+gem 'factory_bot_rails', '5.1.1', group: :test
+gem "rspec-rails", '3.9.0', group: :test
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
