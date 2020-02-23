@@ -11,6 +11,8 @@ Rails.application.routes.draw do
     end
   end
 
+  root to: 'merchants#index'
+
   # namespace :api , defaults: { format: :json } do
   	# resources :parameters do
   		# match '/check_auth' => 'api#check_auth', via: :post

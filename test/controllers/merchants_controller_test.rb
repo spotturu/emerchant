@@ -10,19 +10,6 @@ class MerchantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
-    get new_merchant_url
-    assert_response :success
-  end
-
-  test "should create merchant" do
-    assert_difference('Merchant.count') do
-      post merchants_url, params: { merchant: { description: @merchant.description, email: @merchant.email, name: @merchant.name, status: @merchant.status, total: @merchant.total } }
-    end
-
-    assert_redirected_to merchant_url(Merchant.last)
-  end
-
   test "should show merchant" do
     get merchant_url(@merchant)
     assert_response :success

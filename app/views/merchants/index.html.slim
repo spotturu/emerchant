@@ -19,11 +19,10 @@ table
         td = merchant.description
         td = merchant.email
         td = merchant.status
-        td = merchant.total
+        td = merchant.total_transaction_sum
         td = link_to 'Show', merchant
         td = link_to 'Edit', edit_merchant_path(merchant)
-        td = link_to 'Destroy', merchant, data: { confirm: 'Are you sure?' }, method: :delete
+        td = link_to 'Destroy', merchant, data: { confirm: 'Are you sure?', method: :delete }
 
-br
 
-= link_to 'New Merchant', new_merchant_path
+
