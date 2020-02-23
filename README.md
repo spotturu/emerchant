@@ -16,7 +16,3 @@ Things you may want to cover:
 
 * Services (job queues, cache servers, search engines, etc.)
 ** TransactionsCleanupJob.set(wait: 1.hour).perform_later
-
-
-
-
